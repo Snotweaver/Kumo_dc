@@ -1,0 +1,2018 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Naruto szerepj&#225;t&#233;k - tanul&#225;s-1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-weight: 300;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-weight: 600;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-weight: 700;
+        }
+
+        body {
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+        }
+
+        .markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .preserve-whitespace {
+            white-space: pre-wrap;
+        }
+
+        .spoiler-text {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .spoiler-text--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .spoiler-text--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .spoiler-text--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .quote {
+            display: flex;
+            margin: 0.05em 0;
+        }
+
+        .quote::before {
+            content: "";
+            margin-right: 0.5em;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .pre--multiline {
+            margin-top: 0.25em;
+            padding: 0.5em;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .pre--multiline.hljs {
+            background-color: #2f3136;
+            color: #b9bbbe;
+        }
+
+        .pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+
+        .mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #7289da;
+            background-color: rgba(114, 137, 218, .1);
+            font-weight: 500;
+        }
+
+        .timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .emoji {
+            width: 1.325em;
+            height: 1.325em;
+            margin: 0 0.06em;
+            vertical-align: -0.4em;
+        }
+
+        .emoji--small {
+            width: 1em;
+            height: 1em;
+        }
+
+        .emoji--large {
+            width: 2.8em;
+            height: 2.8em;
+        }
+
+        .preamble {
+            display: grid;
+            margin: 0 0.3em 0.6em 0.3em;
+            max-width: 100%;
+            grid-template-columns: auto 1fr;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 0.6em;
+        }
+
+        .preamble__entry {
+            font-size: 1.4em;
+            color: #ffffff;
+        }
+
+        .preamble__entry--small {
+            font-size: 1em;
+        }
+
+        .chatlog {
+            max-width: 100%;
+        }
+
+        .chatlog__message-group {
+            display: grid;
+            margin: 0 0.6em;
+            padding: 0.9em 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            grid-template-columns: auto 1fr;
+        }
+
+        .chatlog__reference-symbol {
+            grid-column: 1;
+            margin: 8px 4px 4px 18px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            grid-column: 2;
+            margin-bottom: 0.25em;
+            font-size: 0.875em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            align-items: center;
+            color: #b5b6b8;
+        }
+
+        .chatlog__reference-avatar {
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25em;
+        }
+
+        .chatlog__reference-name {
+            margin-right: 0.3em;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-content a:hover {
+            text-decoration: none;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+            color: #b5b6b8;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.spoiler-text) {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25em;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .chatlog__author-avatar-container {
+            grid-column: 1;
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+        }
+
+        .chatlog__author-avatar {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .chatlog__messages {
+            grid-column: 2;
+            min-width: 50%;
+        }
+
+        .chatlog__author-name {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3em;
+            font-size: 0.75em;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .chatlog__message {
+            padding: 0.1em 0.3em;
+            margin: 0 -0.3em;
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__content {
+            font-size: 0.95em;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15em;
+            font-size: 0.8em;
+        }
+
+        .chatlog__attachment {
+            display: inline-block;
+            position: relative;
+            margin-top: 0.3em;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            z-index: 999;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0.4em 0.8em;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+            color: #dcddde;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            vertical-align: top;
+            max-width: 45vw;
+            max-height: 500px;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            width: 100%;
+            max-width: 520px;
+            height: 40px;
+            padding: 10px;
+            background-color: #2f3136;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__edited-timestamp {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3em;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25em;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5em 0.6em;
+            background-color: rgba(46, 48, 54, 0.3);
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author {
+            display: flex;
+            margin-bottom: 0.3em;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            margin-right: 0.5em;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author-name {
+            font-size: 0.875em;
+            font-weight: 600;
+            color: #ffffff
+        }
+
+        .chatlog__embed-author-name-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.2em;
+            font-size: 0.875em;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .chatlog__embed-description {
+            font-weight: 500;
+            font-size: 0.85em;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5em;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6em;
+            font-size: 0.875em;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 150px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2em;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .chatlog__embed-field-value {
+            font-weight: 500;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            margin-left: 1.2em;
+            max-width: 80px;
+            max-height: 80px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6em;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6em;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            margin-right: 0.2em;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            vertical-align: top;
+            max-width: 45vw;
+            max-height: 500px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6em;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            align-items: center;
+            margin: 0.35em 0.1em 0.1em 0.1em;
+            padding: 0.2em 0.35em;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35em;
+            font-size: 0.875em;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .chatlog__bot-tag {
+            position: relative;
+            top: -.1em;
+            margin-left: 0.3em;
+            padding: 0.05em 0.3em;
+            border-radius: 3px;
+            line-height: 1.3;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625em;
+            font-weight: 500;
+        }
+
+        .postamble {
+            margin: 1.4em 0.3em 0.6em 0.3em;
+            padding: 1em;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler-text--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler-text--hidden');
+            }
+            if (element && element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="icon-attachment" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z" />
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z" />
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z" />
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z" />
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/4babc489dc97e91ea48165ce80b80968-FB761.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Naruto szerepj&#225;t&#233;k</div>
+        <div class="preamble__entry">Jutsu tanul&#225;s / tanul&#225;s-1</div>
+
+
+            <div class="preamble__entry preamble__entry--small">
+Between 06-Aug-21 02:50 AM and 06-Aug-21 03:30 AM            </div>
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 02:57 AM</span>
+
+            <div class="chatlog__message " data-message-id="873006961900273684" id="message-873006961900273684" title="Message sent: 06-Aug-21 02:57 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">----------------------------------------------------------
+Jutsu elsaj&#225;t&#237;t&#225;s pr&#243;ba kezd&#233;se: <a href="https://discord.com/channels/821666353009786931/866405837383401472/872211787410472980" onclick="scrollToMessage(event, '872211787410472980')">https://discord.com/channels/821666353009786931/866405837383401472/872211787410472980</a></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="873007835565416458" id="message-873007835565416458" title="Message sent: 06-Aug-21 03:01 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: Laz&#237;ts egy kicsit, mert nincs most erőm, arra, hogy szavakkal elmagyar&#225;zzam mit tegyek. <em>Odal&#233;p a l&#225;nya m&#246;g&#233; &#233;s a k&#233;t kez&#233;re sim&#237;tja a tenyer&#233;t</em>
+Kezd el csin&#225;lni &#233;s pr&#243;b&#225;ld csin&#225;lni, amit mutatok</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:02 AM</span>
+
+            <div class="chatlog__message " data-message-id="873008071016841216" id="message-873008071016841216" title="Message sent: 06-Aug-21 03:02 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">O-ok&#233;....
+<em>elkezdi egy te&#225;t elők&#233;sz&#237;teni a lefőz&#233;shez, mik&#246;zben az anyja kezei az &#246;v&#233;n pihennek &#233;s minden mozdulat&#225;t k&#246;veti</em></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="873008760476549180" id="message-873008760476549180" title="Message sent: 06-Aug-21 03:05 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (1/80) &#201;rzi, ahogy az anyja tenyere nyom&#225;n a saj&#225;t chakra &#225;raml&#225;sa megv&#225;ltozik &#233;s arra k&#233;nyszer&#252;l, hogy a teafűbe kezdjen &#225;ramolni</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="873008761214746625" id="message-873008761214746625" title="Message sent: 06-Aug-21 03:05 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(1/80) &#201;rzi, ahogy az anyja tenyere nyom&#225;n a saj&#225;t chakra &#225;raml&#225;sa megv&#225;ltozik &#233;s arra k&#233;nyszer&#252;l, hogy a teafűbe kezdjen &#225;ramolni
+<div class="pre pre--multiline language-Markdown"># 77
+Details:[d100 #  (77)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="873009053289287680" id="message-873009053289287680" title="Message sent: 06-Aug-21 03:06 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: Most k&#233;sz&#237;tj&#252;k elő az alapanyagot arra, hogy k&#233;pes legyen chakra-t befogadni...l&#233;nyeg&#233;ben chakra h&#225;l&#243;zatot &#233;p&#237;t&#252;nk fel.....</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:07 AM</span>
+
+            <div class="chatlog__message " data-message-id="873009367321047161" id="message-873009367321047161" title="Message sent: 06-Aug-21 03:07 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">&#201;s m&#233;gis, hogy k&#233;ne mindeztelsaj&#225;t&#237;tanom, most, ha fogod midnenben IS a kezem...k&#252;l&#246;nben is EZT hogy csin&#225;lod?</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="873009853415698432" id="message-873009853415698432" title="Message sent: 06-Aug-21 03:09 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: M&#225;r vagy 25 &#233;ve embereket rakok &#246;ssze..&#233;s n&#233;ha sz&#233;t....majd egy nap tal&#225;n ezt is..de most....nem, baj, ha most nem megy...de legal&#225;bb k&#233;pes leszel otthon is gyakorolni....na folytassuk</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="873010037340119100" id="message-873010037340119100" title="Message sent: 06-Aug-21 03:10 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>a teafűben elk&#233;sz&#252;lt egy kezdetleges h&#225;l&#243;zat &#233;s most chakra-val t&#246;ltik fel</em></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="873010088519032852" id="message-873010088519032852" title="Message sent: 06-Aug-21 03:10 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (2/80)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="873010089412407297" id="message-873010089412407297" title="Message sent: 06-Aug-21 03:10 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(2/80)
+<div class="pre pre--multiline language-Markdown"># 40
+Details:[d100 #  (40)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:11 AM</span>
+
+            <div class="chatlog__message " data-message-id="873010293343682610" id="message-873010293343682610" title="Message sent: 06-Aug-21 03:11 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>egyre kev&#233;sb&#233; &#233;rzi &#250;gy, hogy ez neki &#237;gy hajnalok hajnal&#225;n siker&#252;lhet</em></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:11 AM</span>
+
+            <div class="chatlog__message " data-message-id="873010469298896948" id="message-873010469298896948" title="Message sent: 06-Aug-21 03:11 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: Mellesleg mi&#233;rt kl&#243;nk&#233;nt j&#246;tt&#233;l?</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="873010562261454888" id="message-873010562261454888" title="Message sent: 06-Aug-21 03:12 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (3/80)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="873010562995458109" id="message-873010562995458109" title="Message sent: 06-Aug-21 03:12 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(3/80)
+<div class="pre pre--multiline language-Markdown"># 10
+Details:[d100 #  (10)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:13 AM</span>
+
+            <div class="chatlog__message " data-message-id="873010764942802975" id="message-873010764942802975" title="Message sent: 06-Aug-21 03:13 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">...hossz&#250;....m&#233;g az &#233;letemben mindenk&#233;ppen tal&#225;lkozni akartam veled....</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:13 AM</span>
+
+            <div class="chatlog__message " data-message-id="873010975316537415" id="message-873010975316537415" title="Message sent: 06-Aug-21 03:13 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: Jajj kicsim, csak nem att&#243;l f&#233;lsz, hogy minden</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="873011051652861984" id="message-873011051652861984" title="Message sent: 06-Aug-21 03:14 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">elveszik belőled?</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:14 AM</span>
+
+            <div class="chatlog__message " data-message-id="873011124247855124" id="message-873011124247855124" title="Message sent: 06-Aug-21 03:14 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (4/80)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:14 AM</span>
+
+            <div class="chatlog__message " data-message-id="873011125187391488" id="message-873011125187391488" title="Message sent: 06-Aug-21 03:14 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(4/80)
+<div class="pre pre--multiline language-Markdown"># 87
+Details:[d100 #  (87)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="873011339889610762" id="message-873011339889610762" title="Message sent: 06-Aug-21 03:15 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>sz&#233;gyenteljes n&#233;mas&#225;gba burkol&#243;dzik</em></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:16 AM</span>
+
+            <div class="chatlog__message " data-message-id="873011632127754332" id="message-873011632127754332" title="Message sent: 06-Aug-21 03:16 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: Kicsik&#233;m...t&#233;ged a chakr&#225;d teremtett &#233;s a tudatot egy kivet&#252;l&#233;se vagy...ha m&#233;g nem is tudsz most magadr&#243;l...de, te att&#243;l m&#233;g Te vagy....</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:17 AM</span>
+
+            <div class="chatlog__message " data-message-id="873011746250575882" id="message-873011746250575882" title="Message sent: 06-Aug-21 03:17 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (5/60)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:17 AM</span>
+
+            <div class="chatlog__message " data-message-id="873011746808401944" id="message-873011746808401944" title="Message sent: 06-Aug-21 03:17 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(5/60)
+<div class="pre pre--multiline language-Markdown"># 73
+Details:[d100 #  (73)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:18 AM</span>
+
+            <div class="chatlog__message " data-message-id="873012020100861982" id="message-873012020100861982" title="Message sent: 06-Aug-21 03:18 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>a teafűben egy kezdetleges chakra h&#225;l&#243;zat van, ami arra v&#225;r, hogy form&#225;lni kezdj&#233;k</em></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:19 AM</span>
+
+            <div class="chatlog__message " data-message-id="873012266096808037" id="message-873012266096808037" title="Message sent: 06-Aug-21 03:19 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: J&#243;, akkor most kezdj&#252;k el lefőzni, de vigy&#225;zz, hogy nehogy sz&#233;tessen az &#225;rml&#225;s^^</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:19 AM</span>
+
+            <div class="chatlog__message " data-message-id="873012403690958858" id="message-873012403690958858" title="Message sent: 06-Aug-21 03:19 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (6/40)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:19 AM</span>
+
+            <div class="chatlog__message " data-message-id="873012404634673192" id="message-873012404634673192" title="Message sent: 06-Aug-21 03:19 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(6/40)
+<div class="pre pre--multiline language-Markdown"># 28
+Details:[d100 #  (28)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:20 AM</span>
+
+            <div class="chatlog__message " data-message-id="873012641470218260" id="message-873012641470218260" title="Message sent: 06-Aug-21 03:20 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">De...de.... azon k&#237;v&#252;l, hogy eml&#233;kszem az elődeim frusztr&#225;ci&#243;j&#225;ra, nem &#233;rezem, hogy bennem...&#233;ln&#233;nek....</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:21 AM</span>
+
+            <div class="chatlog__message " data-message-id="873012925634342974" id="message-873012925634342974" title="Message sent: 06-Aug-21 03:21 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: Szeretn&#233;d tal&#225;n, hogy a tegnapi Yuno, meg a 10 &#233;vvel ezelőtti Yuno ott hangoskodna a fejedben? Szerinted mi t&#246;rt&#233;nik, amikor alszol? Mi&#233;rt nem f&#233;lsz aludni ennyi erővel?</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="873013122242326528" id="message-873013122242326528" title="Message sent: 06-Aug-21 03:22 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>A chakra h&#225;l&#243;zat &#225;tms&#243;dik a te&#225;ba a levelekből &#233;s egyben marad</em></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="873013271584710666" id="message-873013271584710666" title="Message sent: 06-Aug-21 03:23 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: &#201;s most....programozzuk bele azt amit szeretn&#233;nk^^</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="873013338920083477" id="message-873013338920083477" title="Message sent: 06-Aug-21 03:23 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (7/40)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="873013340270649414" id="message-873013340270649414" title="Message sent: 06-Aug-21 03:23 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(7/40)
+<div class="pre pre--multiline language-Markdown"># 7
+Details:[d100 #  (7)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:24 AM</span>
+
+            <div class="chatlog__message " data-message-id="873013648287752234" id="message-873013648287752234" title="Message sent: 06-Aug-21 03:24 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>kezel alatt, a chakra k&#233;pl&#233;keny gyurmak&#233;nt gy&#250;rhat&#243; &#233;s a csom&#243;pontok &#225;tk&#246;thetőek, viszont a l&#225;ny nem eg&#233;szen &#233;rti, amit az anyja csin&#225;l</em></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:25 AM</span>
+
+            <div class="chatlog__message " data-message-id="873013841242488872" id="message-873013841242488872" title="Message sent: 06-Aug-21 03:25 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: L&#225;tom a tan&#225;cstalans&#225;got...laz&#237;ts &#233;s figyelj egy kicsit^^ -<em>&#233;s nyom egy cuppan&#243;st az anyja kobakj&#225;ra</em></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:26 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014118058184745" id="message-873014118058184745" title="Message sent: 06-Aug-21 03:26 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (8/40)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:26 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014119006085160" id="message-873014119006085160" title="Message sent: 06-Aug-21 03:26 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(8/40)
+<div class="pre pre--multiline language-Markdown"># 12
+Details:[d100 #  (12)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/37a826cf28bfc2c3a0e457d8a589d1f9-116CC.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)#0000" data-user-id="872922788493664266" style="">Pacifica Yuno™ (&#225;rny&#233;kkl&#243;n^^)</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:27 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014271011872819" id="message-873014271011872819" title="Message sent: 06-Aug-21 03:27 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">...hogy &#233;rted...az alv&#225;s dolgot?</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:27 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014501149134859" id="message-873014501149134859" title="Message sent: 06-Aug-21 03:27 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: Amikor alszol...a tudatod sz&#233;tszalad...&#233;s reggel &#233;bred&#233;skor &#250;jra &#246;ssze&#225;ll....nem sokban k&#252;l&#246;nb&#246;zik ez att&#243;l, amit kl&#243;nk&#233;nt meg&#233;lsz^^</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:28 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014583814684682" id="message-873014583814684682" title="Message sent: 06-Aug-21 03:28 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (9/40)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:28 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014584724815872" id="message-873014584724815872" title="Message sent: 06-Aug-21 03:28 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(9/40)
+<div class="pre pre--multiline language-Markdown"># 62
+Details:[d100 #  (62)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/3c586f866ac659c3b981a0882c9965ee-FF03C.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faceless_crowd#0000" data-user-id="872922788493664266" style="">Faceless_crowd</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014790178627584" id="message-873014790178627584" title="Message sent: 06-Aug-21 03:29 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><strong>Olivia</strong>: Ez a form&#225;ci&#243; arra val&#243;, hogy elaltasd a fogyaszt&#243;t</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014864988225547" id="message-873014864988225547" title="Message sent: 06-Aug-21 03:29 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">!d100 # (10/20)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/e6d297d605117684d26c6b3b07169b31-84D87.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="DiceParser#0764" data-user-id="279722369260453888" style="color: rgb(97,129,177)">DiceParser</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-21 03:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014865910976512" id="message-873014865910976512" title="Message sent: 06-Aug-21 03:29 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(10/20)
+<div class="pre pre--multiline language-Markdown"># 36
+Details:[d100 #  (36)]</div></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="Naruto%20szerepj%C3%A1t%C3%A9k%20-%20Jutsu%20tanul%C3%A1s%20-%20tanul%C3%A1s-1%20%5B831856766785421372%5D%20%282021-08-06%20to%202021-08-06%29.html_Files/eac5f5047a7e1dfda10a01cea7aa5f4b-33D1A.png" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Doban#0516" data-user-id="416660643928604672" style="color: rgb(183,17,190)">Pacifica Yuno</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-21 03:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="873014936719224883" id="message-873014936719224883" title="Message sent: 06-Aug-21 03:29 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">(Technika elsaj&#225;t&#237;tva)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 46 message(s)</div>
+</div>
+
+</body>
+
+</html>
